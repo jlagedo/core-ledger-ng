@@ -14,7 +14,7 @@ import { UserMenuComponent } from '../user-menu-component/user-menu-component';
     MatSidenavModule,
     SideNavComponent,
     TopBarComponent,
-    GlobalSearchComponent,
+    //GlobalSearchComponent,
     NotificationsMenuComponent,
     UserMenuComponent
   ],
