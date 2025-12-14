@@ -1,11 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-import { TopNav } from './top-nav/top-nav';
+import { AppShellComponent } from './app-shell-component/app-shell-component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TopNav],
+  imports: [AppShellComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

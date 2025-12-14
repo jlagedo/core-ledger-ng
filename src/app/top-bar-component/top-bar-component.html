@@ -1,0 +1,29 @@
+<!-- app-top-bar.component.html -->
+<mat-toolbar color="primary" class="topbar" role="banner">
+
+    <button mat-icon-button class="mobile-menu" aria-label="Open navigation menu" (click)="toggleSidenav.emit()">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="top-left" aria-hidden="true">
+        <span class="app-title">LedgerPro</span>
+        <mat-chip class="env-chip" color="accent" selected>{{ envLabel }}</mat-chip>
+
+        <mat-form-field appearance="outline" class="entity-selector" floatLabel="always">
+            <mat-select aria-label="Select entity">
+                <mat-option *ngFor="let e of entities" [value]="e.id">{{ e.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <span class="spacer"></span>
+
+    <!-- search slot -->
+    <ng-content select="[global-search]"></ng-content>
+
+    <span class="spacer"></span>
+
+    <!-- actions slot -->
+    <ng-content select="[top-actions]"></ng-content>
+
+</mat-toolbar>

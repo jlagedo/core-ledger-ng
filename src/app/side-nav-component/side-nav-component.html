@@ -1,0 +1,44 @@
+<!-- app-side-nav.component.html -->
+<div class="nav-brand" aria-hidden="true">
+
+
+    <!-- <img src="assets/logo.svg" alt="LedgerPro logo" class="logo" /> -->
+    <span class="brand-name">LedgerPro</span>
+</div>
+
+<mat-nav-list>
+    <a mat-list-item routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon matListIcon>dashboard</mat-icon>
+        <span>Dashboard</span>
+    </a>
+
+    <a mat-list-item routerLink="/accounts" routerLinkActive="active">
+        <mat-icon matListIcon>account_balance</mat-icon>
+        <span>Accounts</span>
+    </a>
+
+    <a mat-list-item routerLink="/ledger" routerLinkActive="active">
+        <mat-icon matListIcon>receipt_long</mat-icon>
+        <span>Ledger</span>
+    </a>
+
+    <a mat-list-item routerLink="/transactions" routerLinkActive="active">
+        <mat-icon matListIcon>swap_horiz</mat-icon>
+        <span>Transactions</span>
+    </a>
+
+    <a mat-list-item routerLink="/reconciliation" routerLinkActive="active">
+        <mat-icon matListIcon>compare_arrows</mat-icon>
+        <span>Reconciliation</span>
+    </a>
+
+    <a mat-list-item routerLink="/reports" routerLinkActive="active">
+        <mat-icon matListIcon>bar_chart</mat-icon>
+        <span>Reports</span>
+    </a>
+
+    <a mat-list-item routerLink="/admin" routerLinkActive="active">
+        <mat-icon matListIcon>settings</mat-icon>
+        <span>Admin</span>
+    </a>
+</mat-nav-list>

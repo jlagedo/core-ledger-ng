@@ -1,0 +1,19 @@
+.notif-badge {
+  background: #d32f2f;
+  color: white;
+  border-radius: 10px;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: relative;
+  top: -10px;
+  right: -10px;
+}
+
+.notif-text .title {
+  font-weight: 500;
+}
+
+.notif-text .time {
+  font-size: 12px;
+  opacity: 0.7;
+}

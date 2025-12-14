@@ -1,0 +1,10 @@
+<!-- app-user-menu.component.html -->
+<button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="User menu">
+    <mat-icon>account_circle</mat-icon>
+</button>
+
+<mat-menu #userMenu="matMenu">
+    <button mat-menu-item>Profile</button>
+    <button mat-menu-item>Preferences</button>
+    <button mat-menu-item (click)="logout.emit()">Logout</button>
+</mat-menu>

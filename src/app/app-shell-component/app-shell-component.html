@@ -1,0 +1,32 @@
+<!-- app-shell.component.html -->
+<mat-sidenav-container class="app-container" autosize>
+
+    <!-- side nav component -->
+    <mat-sidenav class="nav-sidenav" mode="side" opened role="navigation" aria-label="Primary navigation">
+        <app-side-nav></app-side-nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="main-content">
+
+        <!-- top bar: provide slots for search and actions -->
+        <app-top-bar [envLabel]="'Production'" [entities]="[]" (toggleSidenav)="sidenav?.toggle()">
+
+            <!-- global search projected into top-bar -->
+            <app-global-search global-search slot></app-global-search>
+
+            <!-- top actions projected into top-bar -->
+            <div top-actions>
+                <app-notifications-menu></app-notifications-menu>
+                <app-user-menu></app-user-menu>
+            </div>
+
+        </app-top-bar>
+
+        <a class="skip-link" href="#main" tabindex="0">Skip to main content</a>
+
+        <main id="main" class="content-wrapper" tabindex="-1">
+            <router-outlet></router-outlet>
+        </main>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

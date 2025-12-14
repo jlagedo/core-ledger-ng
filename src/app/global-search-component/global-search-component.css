@@ -1,0 +1,10 @@
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  flex: 0 1 420px;
+}
+
+.global-search {
+  width: 100%;
+  max-width: 420px;
+}
