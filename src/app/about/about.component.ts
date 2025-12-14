@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector: 'app-about',
     standalone: true,
     imports: [],
-    template: `<p>about works!</p>`,
+    templateUrl: './about.html',
 })
 export class AboutComponent { }
