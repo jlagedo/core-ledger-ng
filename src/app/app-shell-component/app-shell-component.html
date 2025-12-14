@@ -9,10 +9,10 @@
     <mat-sidenav-content class="main-content">
 
         <!-- top bar: provide slots for search and actions -->
-        <app-top-bar [envLabel]="'Production'" [entities]="[]" (toggleSidenav)="sidenav?.toggle()">
+        <app-top-bar [envLabel]="'Production'">
 
             <!-- global search projected into top-bar -->
-            <app-global-search global-search slot></app-global-search>
+            <!-- <app-global-search global-search slot></app-global-search> -->
 
             <!-- top actions projected into top-bar -->
             <div top-actions>

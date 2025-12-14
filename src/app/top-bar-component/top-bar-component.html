@@ -9,11 +9,6 @@
         <span class="app-title">LedgerPro</span>
         <mat-chip class="env-chip" color="accent" selected>{{ envLabel }}</mat-chip>
 
-        <mat-form-field appearance="outline" class="entity-selector" floatLabel="always">
-            <mat-select aria-label="Select entity">
-                <mat-option *ngFor="let e of entities" [value]="e.id">{{ e.name }}</mat-option>
-            </mat-select>
-        </mat-form-field>
     </div>
 
     <span class="spacer"></span>

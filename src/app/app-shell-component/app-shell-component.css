@@ -22,6 +22,7 @@
   flex: 1 1 auto;
   overflow-y: auto;
   padding: 24px;
+  background-color: var(--mat-sys-surface-container-low);
 }
 
 /* Accessibility: skip link */
@@ -37,7 +38,12 @@
 .skip-link:focus {
   left: 16px;
   top: 72px;
-  background: white;
+  background: var(--mat-sys-surface);
   padding: 8px;
   z-index: 20;
+}
+
+.nav-sidenav {
+  width: 240px;
+  border-right: 1px solid var(--mat-sys-outline-variant);
 }
