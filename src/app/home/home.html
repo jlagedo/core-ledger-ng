@@ -1,2 +1,8 @@
 <h1>Home</h1>
 <p>home works!</p>
+
+@if (todoList$ | async; as todos) {
+@for (todo of todos; track todo.id) {
+<p>{{ todo.description }}</p>
+}
+}
