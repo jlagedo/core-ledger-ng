@@ -1,0 +1,110 @@
+@use '@angular/material' as mat;
+
+/* ─────────────────────────────────────────────
+   Tokyo Night base colors
+   ───────────────────────────────────────────── */
+
+$tn-bg: #1a1b26;
+$tn-surface: #16161e;
+$tn-card: #1f2335;
+$tn-border: #2a2e44;
+
+$tn-text: #c0caf5;
+$tn-muted: #a9b1d6;
+
+$tn-blue: #7aa2f7;
+$tn-cyan: #7dcfff;
+
+/* Typography */
+$font-stack: (
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    "Noto Sans",
+    "Liberation Sans",
+    sans-serif
+);
+
+$code-font-stack: (
+    "JetBrains Mono",
+    "Fira Code",
+    "Cascadia Code",
+    "Source Code Pro",
+    Menlo,
+    Consolas,
+    "Liberation Mono",
+    monospace
+);
+
+/* ─────────────────────────────────────────────
+   Theme application (Angular Material v19+ API)
+   ───────────────────────────────────────────── */
+
+html {
+    /* If you want to force dark always, keep dark.
+     If you want OS-switching, use: light dark */
+    color-scheme: dark;
+
+    @include mat.theme((color: (theme-type: dark,
+                primary: mat.$blue-palette,
+                tertiary: mat.$cyan-palette,
+            ),
+            density: 0,
+            /* Keep typography simple + reliable:
+       set app font on body, and let tokens flow through */
+        ));
+
+    @include mat.system-classes();
+
+    /* Override system tokens using the supported mixin */
+    @include mat.theme-overrides((surface: $tn-surface,
+            surface-container: $tn-card,
+            surface-container-high: #1b1f33,
+            outline: $tn-border,
+            on-surface: $tn-text,
+            on-surface-variant: $tn-muted,
+
+            primary: $tn-blue,
+            tertiary: $tn-cyan,
+        ));
+}
+
+/* App defaults */
+body {
+    background: $tn-bg;
+    color: $tn-text;
+    font-family: $font-stack;
+}
+
+/* Links & selection */
+a {
+    color: $tn-cyan;
+}
+
+::selection {
+    background: rgba(122, 162, 247, 0.35);
+}
+
+/* ─────────────────────────────────────────────
+   Monospace editor-like areas
+   ───────────────────────────────────────────── */
+
+code,
+pre,
+kbd,
+samp,
+.mat-mdc-form-field textarea,
+.mat-mdc-input-element.monospace,
+.editor,
+.code-editor {
+    font-family: $code-font-stack;
+    font-variant-ligatures: contextual;
+    font-feature-settings: "liga" 1, "calt" 1;
+}
+
+.monospace {
+    font-family: $code-font-stack;
+}

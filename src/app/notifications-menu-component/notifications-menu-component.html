@@ -1,20 +1,23 @@
 <!-- app-notifications-menu.component.html -->
 <button mat-icon-button [matMenuTriggerFor]="notifMenu" aria-label="Notifications" (click)="open.emit()">
     <mat-icon>notifications</mat-icon>
-    <span class="notif-badge" *ngIf="notifications.length">{{ notifications.length }}</span>
+    @if (notifications.length) {
+    <span class="notif-badge">{{ notifications.length }}</span>
+    }
 </button>
 
 <mat-menu #notifMenu="matMenu" xPosition="before">
-    <ng-container *ngIf="notifications.length; else noNotifs">
-        <button mat-menu-item *ngFor="let n of notifications">
-            <mat-icon>{{ n.icon }}</mat-icon>
-            <div class="notif-text">
-                <div class="title">{{ n.title }}</div>
-                <div class="time">{{ n.time | date:'short' }}</div>
-            </div>
-        </button>
-    </ng-container>
-    <ng-template #noNotifs>
-        <button mat-menu-item disabled>No notifications</button>
-    </ng-template>
+    @if (notifications.length) {
+    @for (n of notifications; track n) {
+    <button mat-menu-item>
+        <mat-icon>{{ n.icon }}</mat-icon>
+        <div class="notif-text">
+            <div class="title">{{ n.title }}</div>
+            <div class="time">{{ n.time | date:'short' }}</div>
+        </div>
+    </button>
+    }
+    } @else {
+    <button mat-menu-item disabled>No notifications</button>
+    }
 </mat-menu>
