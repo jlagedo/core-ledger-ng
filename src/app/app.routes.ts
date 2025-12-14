@@ -4,4 +4,5 @@ export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', loadComponent: () => import('./home/home.component').then(c => c.HomeComponent) },
     { path: 'about', loadComponent: () => import('./about/about.component').then(c => c.AboutComponent) },
+    { path: 'todo', loadComponent: () => import('./todo/todo').then(c => c.TodoComponent) },
 ];
