@@ -1,16 +1,18 @@
 import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { MatFormField, MatPrefix, MatSuffix } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-global-search',
   imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule
+    MatFormField,
+    MatPrefix,
+    MatSuffix,
+    MatInput,
+    MatIcon,
+    MatIconButton
   ],
   templateUrl: './global-search-component.html',
   styleUrl: './global-search-component.css',

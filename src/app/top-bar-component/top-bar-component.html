@@ -1,5 +1,5 @@
 <!-- app-top-bar.component.html -->
-<mat-toolbar color="primary" class="topbar" role="banner">
+<mat-toolbar class="topbar" role="banner">
 
     <button mat-icon-button class="mobile-menu" aria-label="Open navigation menu" (click)="toggleSidenav.emit()">
         <mat-icon>menu</mat-icon>
@@ -7,7 +7,7 @@
 
     <div class="top-left" aria-hidden="true">
         <span class="app-title">LedgerPro</span>
-        <mat-chip class="env-chip" color="accent" selected>{{ envLabel() }}</mat-chip>
+        <mat-chip class="env-chip">{{ envLabel() }}</mat-chip>
 
     </div>
 

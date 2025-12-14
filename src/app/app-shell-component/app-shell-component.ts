@@ -1,6 +1,6 @@
 import { Component, viewChild, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
 import { SideNavComponent } from '../side-nav-component/side-nav-component';
 import { TopBarComponent } from '../top-bar-component/top-bar-component';
 import { GlobalSearchComponent } from '../global-search-component/global-search-component';
@@ -11,7 +11,9 @@ import { UserMenuComponent } from '../user-menu-component/user-menu-component';
   selector: 'app-app-shell-component',
   imports: [
     RouterOutlet,
-    MatSidenavModule,
+    MatSidenav,
+    MatSidenavContainer,
+    MatSidenavContent,
     SideNavComponent,
     TopBarComponent,
     //GlobalSearchComponent,

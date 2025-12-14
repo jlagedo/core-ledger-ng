@@ -3,6 +3,8 @@
   align-items: center;
   padding: 0 16px;
   gap: 16px;
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
 }
 
 .mobile-menu {
@@ -23,6 +25,8 @@
 .env-chip {
   height: 24px;
   font-size: 12px;
+  --mat-chip-label-text-color: var(--mat-sys-on-tertiary-container);
+  --mat-chip-elevated-container-color: var(--mat-sys-tertiary-container);
 }
 
 .entity-selector {
