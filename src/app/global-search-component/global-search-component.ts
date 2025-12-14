@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,8 +14,9 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   templateUrl: './global-search-component.html',
   styleUrl: './global-search-component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GlobalSearchComponent {
-  @Input() placeholder: string = 'Search...';
-  @Output() search = new EventEmitter<string>();
+  placeholder = input<string>('Search...');
+  search = output<string>();
 }

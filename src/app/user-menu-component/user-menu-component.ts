@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, output, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -12,7 +12,8 @@ import { MatMenuModule } from '@angular/material/menu';
   ],
   templateUrl: './user-menu-component.html',
   styleUrl: './user-menu-component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserMenuComponent {
-  @Output() logout = new EventEmitter<void>();
+  logout = output<void>();
 }

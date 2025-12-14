@@ -1,6 +1,6 @@
 <h1>Todo List</h1>
 
-<mat-table [dataSource]="(datasource$ | async) || []">
+<mat-table [dataSource]="datasource()">
     <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
         <mat-cell *matCellDef="let todo"> {{todo.id}} </mat-cell>

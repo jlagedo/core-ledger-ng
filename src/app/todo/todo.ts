@@ -1,20 +1,21 @@
 
 import { MatTableModule } from '@angular/material/table';
-import { Component, inject } from '@angular/core';
-import { CommonModule, AsyncPipe } from '@angular/common';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { TodoApiService } from '../services/todo-api.service';
-import { Observable } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Todo } from '../models/todo.model';
 
 @Component({
   selector: 'app-todo',
-  imports: [MatTableModule, AsyncPipe, CommonModule],
+  imports: [MatTableModule, DatePipe],
   templateUrl: './todo.html',
   styleUrl: './todo.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoComponent {
   private todoApiService = inject(TodoApiService)
 
-  // The dollar sign ($) is a convention in Angular to indicate that a property is an Observable stream
-  datasource$: Observable<Todo[]> = this.todoApiService.getTodos();
+  // Converted from Observable to signal for better reactivity
+  datasource = toSignal(this.todoApiService.getTodos(), { initialValue: [] as Todo[] });
 }

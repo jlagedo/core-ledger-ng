@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, viewChild, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { SideNavComponent } from '../side-nav-component/side-nav-component';
@@ -20,7 +20,8 @@ import { UserMenuComponent } from '../user-menu-component/user-menu-component';
   ],
   templateUrl: './app-shell-component.html',
   styleUrl: './app-shell-component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppShellComponent {
-  @ViewChild(MatSidenav) sidenav?: MatSidenav;
+  sidenav = viewChild(MatSidenav);
 }

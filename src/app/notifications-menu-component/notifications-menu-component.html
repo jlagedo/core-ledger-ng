@@ -1,14 +1,14 @@
 <!-- app-notifications-menu.component.html -->
 <button mat-icon-button [matMenuTriggerFor]="notifMenu" aria-label="Notifications" (click)="open.emit()">
     <mat-icon>notifications</mat-icon>
-    @if (notifications.length) {
-    <span class="notif-badge">{{ notifications.length }}</span>
+    @if (notifications().length) {
+    <span class="notif-badge">{{ notifications().length }}</span>
     }
 </button>
 
 <mat-menu #notifMenu="matMenu" xPosition="before">
-    @if (notifications.length) {
-    @for (n of notifications; track n) {
+    @if (notifications().length) {
+    @for (n of notifications(); track n) {
     <button mat-menu-item>
         <mat-icon>{{ n.icon }}</mat-icon>
         <div class="notif-text">

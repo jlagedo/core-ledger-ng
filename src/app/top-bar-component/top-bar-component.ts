@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Entity } from '../models/entity.model';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,9 +21,10 @@ import { MatSelectModule } from '@angular/material/select';
   ],
   templateUrl: './top-bar-component.html',
   styleUrl: './top-bar-component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TopBarComponent {
-  @Input() envLabel: string = '';
-  @Input() entities: any[] = [];
-  @Output() toggleSidenav = new EventEmitter<void>();
+  envLabel = input<string>('');
+  entities = input<Entity[]>([]);
+  toggleSidenav = output<void>();
 }
