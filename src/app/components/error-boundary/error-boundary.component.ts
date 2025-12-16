@@ -1,12 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-    selector: 'app-error-boundary',
-    imports: [MatCardModule, MatButtonModule, MatIconModule],
-    template: `
+  selector: 'app-error-boundary',
+  imports: [MatCardModule, MatButtonModule, MatIconModule],
+  template: `
     @if (error) {
       <mat-card class="error-boundary-card">
         <mat-card-header>
@@ -34,7 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
       <ng-content />
     }
   `,
-    styles: [`
+  styles: [`
     .error-boundary-card {
       margin: 20px;
       background: var(--mat-sys-error-container);
@@ -60,17 +60,18 @@ import { MatIconModule } from '@angular/material/icon';
       display: flex;
       align-items: center;
     }
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ErrorBoundaryComponent {
-    @Input() error: string | null = null;
-    @Input() details: string | null = null;
-    @Input() retry: () => void = () => { };
-    @Input() showDetails: boolean = false;
+  @Input() error: string | null = null;
+  @Input() details: string | null = null;
+  @Input() retry: () => void = () => { };
+  @Input() showDetails: boolean = false;
 
-    showingDetails = false;
+  showingDetails = false;
 
-    toggleDetails(): void {
-        this.showingDetails = !this.showingDetails;
-    }
+  toggleDetails(): void {
+    this.showingDetails = !this.showingDetails;
+  }
 }

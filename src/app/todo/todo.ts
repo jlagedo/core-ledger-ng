@@ -21,6 +21,7 @@ import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { Subject } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-todo',
@@ -47,6 +48,7 @@ import { Subject } from 'rxjs';
 export class TodoComponent {
   private todoApiService = inject(TodoApiService)
   private refresh$ = new Subject<void>();
+  private snackBar = inject(MatSnackBar);
 
   // Signal that refreshes when refresh$ emits
   datasource = toSignal(
@@ -62,9 +64,22 @@ export class TodoComponent {
   }
 
   deleteTodo(id: number): void {
-    this.todoApiService.deleteTodo(id).subscribe(() => {
-      // Trigger refresh by emitting to refresh$
-      this.refresh$.next();
+    this.todoApiService.deleteTodo(id).subscribe({
+      next: () => {
+        // Trigger refresh by emitting to refresh$
+        this.refresh$.next();
+        this.snackBar.open('Todo deleted successfully', 'Close', {
+          duration: 3000,
+          panelClass: ['success-snackbar']
+        });
+      },
+      error: (error) => {
+        this.snackBar.open('Failed to delete todo. Please try again.', 'Close', {
+          duration: 5000,
+          panelClass: ['error-snackbar']
+        });
+        // Error is already logged by the global error handler
+      }
     });
   }
 
@@ -75,8 +90,22 @@ export class TodoComponent {
       this.todoApiService.updateTodo(id, {
         description: currentTodo.description,
         isCompleted
-      }).subscribe(() => {
-        this.refresh$.next();
+      }).subscribe({
+        next: () => {
+          this.refresh$.next();
+          const status = isCompleted ? 'completed' : 'marked as incomplete';
+          this.snackBar.open(`Todo ${status} successfully`, 'Close', {
+            duration: 3000,
+            panelClass: ['success-snackbar']
+          });
+        },
+        error: (error) => {
+          this.snackBar.open('Failed to update todo. Please try again.', 'Close', {
+            duration: 5000,
+            panelClass: ['error-snackbar']
+          });
+          // Error is already logged by the global error handler
+        }
       });
     }
   }
