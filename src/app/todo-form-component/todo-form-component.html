@@ -1,0 +1,31 @@
+<form [formGroup]="todoForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Todo Form</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Description</mat-label>
+                        <input matInput id="description" type="text" formControlName="description">
+                        @if (todoForm.controls['description'].hasError('required') &&
+                        todoForm.controls['description'].touched) {
+                        <mat-error>Description is <strong>required</strong></mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button matButton="elevated" color="primary" type="submit" [disabled]="isLoading || todoForm.invalid">
+                @if (isLoading) {
+                <mat-spinner diameter="20"></mat-spinner>
+                Creating...
+                } @else {
+                Submit
+                }
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
