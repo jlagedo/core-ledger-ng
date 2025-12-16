@@ -9,6 +9,6 @@ import { AppShellComponent } from './app-shell-component/app-shell-component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  readonly title = signal('ng-test');
+  readonly title = signal('core-ledger-ng');
 
 }

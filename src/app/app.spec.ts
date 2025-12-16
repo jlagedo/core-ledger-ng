@@ -24,6 +24,6 @@ describe('AppComponent', () => {
   it('should have title signal with correct value', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title()).toBe('ng-test');
+    expect(app.title()).toBe('core-ledger-ng');
   });
 });
