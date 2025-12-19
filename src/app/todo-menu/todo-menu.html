@@ -1,0 +1,9 @@
+<button mat-icon-button [matMenuTriggerFor]="todoMenu" aria-label="Todo">
+    <mat-icon>task</mat-icon>
+</button>
+
+<mat-menu #todoMenu="matMenu" xPosition="before">
+  <div mat-menu-item>Todo Item 1</div>
+  <div mat-menu-item>Todo Item 2</div>
+  <div mat-menu-item>Todo Item 3</div>
+</mat-menu>

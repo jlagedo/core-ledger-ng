@@ -1,7 +1,8 @@
-import { Component, output, ChangeDetectionStrategy } from '@angular/core';
-import { MatIconButton } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
-import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import {ChangeDetectionStrategy, Component, inject, output} from '@angular/core';
+import {MatButton, MatIconButton} from '@angular/material/button';
+import {MatIcon} from '@angular/material/icon';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
+import {AuthService} from '../services/auth-service';
 
 @Component({
   selector: 'app-user-menu',
@@ -10,12 +11,17 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
     MatIcon,
     MatMenu,
     MatMenuItem,
-    MatMenuTrigger
+    MatMenuTrigger,
+    MatButton
   ],
   templateUrl: './user-menu-component.html',
   styleUrl: './user-menu-component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserMenuComponent {
+
   logout = output<void>();
+
+  user = inject(AuthService).currentUser;
+
 }

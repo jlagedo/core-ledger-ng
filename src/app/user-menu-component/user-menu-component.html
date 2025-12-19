@@ -1,10 +1,18 @@
 <!-- app-user-menu.component.html -->
-<button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="User menu">
-    <mat-icon>account_circle</mat-icon>
-</button>
+@if (user(); as userValue) {
+  <button [matMenuTriggerFor]="userMenu" aria-label="User menu" matIconButton="tonal">
+    <mat-icon>account_</mat-icon>
+  </button>
+} @else {
+  <button [matMenuTriggerFor]="userMenu" aria-label="User menu" matIconButton>
 
+
+    <mat-icon>account_circle</mat-icon>
+
+  </button>
+}
 <mat-menu #userMenu="matMenu">
-    <button mat-menu-item>Profile</button>
-    <button mat-menu-item>Preferences</button>
-    <button mat-menu-item (click)="logout.emit()">Logout</button>
+  <button mat-menu-item>Profile</button>
+  <button mat-menu-item>Preferences</button>
+  <button (click)="logout.emit()" mat-menu-item>Logout</button>
 </mat-menu>

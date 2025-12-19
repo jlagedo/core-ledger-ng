@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard-component';
+import { TodoMenu } from './todo-menu';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('TodoMenu', () => {
+  let component: TodoMenu;
+  let fixture: ComponentFixture<TodoMenu>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardComponent]
+      imports: [TodoMenu]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(TodoMenu);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

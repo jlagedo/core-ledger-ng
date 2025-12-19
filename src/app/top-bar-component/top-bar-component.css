@@ -4,11 +4,7 @@
   padding: 0 16px;
   gap: 16px;
   background-color: var(--mat-sys-surface);
-  
-}
 
-.mobile-menu {
-  display: none; /* enable via media query if needed */
 }
 
 .top-left {
@@ -27,10 +23,6 @@
   font-size: 12px;
   --mat-chip-label-text-color: var(--mat-sys-on-tertiary-container);
   --mat-chip-elevated-container-color: var(--mat-sys-tertiary-container);
-}
-
-.entity-selector {
-  width: 180px;
 }
 
 .spacer {
